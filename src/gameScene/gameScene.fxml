@@ -15,7 +15,7 @@
   <children>
     <AnchorPane prefHeight="467.0" prefWidth="415.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
       <children>
-        <Label fx:id="label1" contentDisplay="CENTER" layoutX="157.0" layoutY="16.0" text="Please, wait" textAlignment="CENTER">
+        <Label fx:id="label1" contentDisplay="CENTER" layoutX="14.0" layoutY="26.0" text="Please, wait" textAlignment="CENTER">
           <font>
             <Font size="20.0" />
           </font>
@@ -78,8 +78,8 @@
         <Rectangle fx:id="rect7" arcHeight="5.0" arcWidth="5.0" fill="$x2" height="46.0" layoutX="96.0" layoutY="235.0" strokeType="INSIDE" width="67.0" />
         <Rectangle fx:id="rect8" arcHeight="5.0" arcWidth="5.0" fill="$x2" height="46.0" layoutX="176.0" layoutY="235.0" strokeType="INSIDE" width="67.0" />
         <Rectangle fx:id="rect9" arcHeight="5.0" arcWidth="5.0" fill="$x2" height="46.0" layoutX="256.0" layoutY="235.0" strokeType="INSIDE" width="67.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="28.0" layoutX="56.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="28.0" layoutX="56.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="28.0" layoutX="56.0" layoutY="401.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="28.0" layoutX="56.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
         <Label fx:id="labelPlayer1" layoutX="122.0" layoutY="356.0" text="">
           <font>
             <Font name="System Bold Italic" size="20.0" fx:id="x3" />

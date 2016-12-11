@@ -4,14 +4,8 @@ import client.Client;
 import gameStates.*;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import sample.Main;
 
 public class Game implements DataUpdater {
 
@@ -77,7 +71,8 @@ public class Game implements DataUpdater {
                 new InitialState(),
                 new WaitForGameState(),
                 new ActionState(),
-                new WaitState()
+                new WaitState(),
+                new EndState()
         };
         currentState = INITIAL;
     }
@@ -127,6 +122,22 @@ public class Game implements DataUpdater {
 
                         states[getCurrentState()].recvNewState((short)state);
 
+                        if (state == END) {
+                            long resultOfGame = (Long)jsonObj.get("result_of_game");
+                            String winnerName = (String)jsonObj.get("winner");
+                            String loserName = (String)jsonObj.get("loser");
+
+                            if (resultOfGame == 2){
+                                updatelabelOnEnd("Dead heat between " + winnerName + " and " + loserName);
+                            } else {
+                                if (winnerName.compareTo(ownName) == 0){
+                                    updatelabelOnEnd("Congratulation, " + winnerName + ". You won. " + loserName + " is loser.");
+                                } else {
+                                    updatelabelOnEnd("Sorry, " + loserName + ", you lose. " + winnerName + " won.");
+                                }
+                            }
+                        }
+
                         break;
                     }
                     case CONFIRMATION:
@@ -175,6 +186,24 @@ public class Game implements DataUpdater {
                 e.printStackTrace();
             }
         }
+    }
+
+    private  void updatelabelOnEnd(String text) {
+        Task task = new Task<Void>() {
+            @Override
+            public Void call() throws Exception {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        data.getStringStateProp().set(text);
+                    }
+                });
+                return null;
+            }
+        };
+        Thread th = new Thread(task);
+        th.setDaemon(true);
+        th.start();
     }
 
     private void updateLine(String line, long color) {

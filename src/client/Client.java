@@ -1,5 +1,7 @@
 package client;
 
+import sun.net.ConnectionResetException;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -48,8 +50,12 @@ public class Client {
     public String recvMail() {
         try {
             String msg;
-            if ((msg = buffread.readLine()) != null) {
-                return msg;
+            try {
+                if ((msg = buffread.readLine()) != null) {
+                    return msg;
+                }
+            } catch (ConnectionResetException sockex) {
+                clientSocket.close();
             }
         } catch (IOException e) {
             //report exception somewhere.
