@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gameScene.GameSceneController">
+  <children>
+    <AnchorPane prefHeight="407.0" prefWidth="415.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+      <children>
+        <Button fx:id="button1" layoutX="150.0" layoutY="366.0" mnemonicParsing="false" onAction="#onButton1ClickMethod" text="Make a move" />
+        <Label fx:id="label1" contentDisplay="CENTER" layoutX="157.0" layoutY="16.0" text="Please, wait" textAlignment="CENTER">
+          <font>
+            <Font size="20.0" />
+          </font>
+        </Label>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e9ffcc" height="246.0" layoutX="56.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="304.0" />
+        <Circle layoutX="89.0" layoutY="109.0" radius="6.5" stroke="BLACK" strokeType="INSIDE">
+          <fill>
+            <Color blue="0.000" green="0.960" red="1.000" fx:id="x1" />
+          </fill>
+        </Circle>
+        <Circle fill="$x1" layoutX="169.0" layoutY="109.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="249.0" layoutY="109.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="329.0" layoutY="109.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="89.0" layoutY="168.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="169.0" layoutY="168.0" radius="6.499950000001263" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="249.0" layoutY="168.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="329.0" layoutY="168.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="89.0" layoutY="228.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="169.0" layoutY="228.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="249.0" layoutY="228.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="329.0" layoutY="228.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="89.0" layoutY="288.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="169.0" layoutY="288.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="249.0" layoutY="288.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="$x1" layoutX="329.0" layoutY="288.0" radius="6.5" stroke="BLACK" strokeType="INSIDE" />
+        <Line fx:id="h1" endX="-37.0" endY="0.0" layoutX="197.0" layoutY="110.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="h2" endX="-37.0" endY="0.0" layoutX="278.0" layoutY="109.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="h3" endX="-37.0" endY="0.0" layoutX="358.0" layoutY="109.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="h4" endX="-37.0" endY="0.0" layoutX="198.0" layoutY="168.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="h5" endX="-37.0" endY="0.0" layoutX="278.0" layoutY="168.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="h6" endX="-37.0" endY="0.0" layoutX="358.0" layoutY="168.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="h7" endX="-37.0" endY="0.0" layoutX="197.0" layoutY="228.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="h8" endX="-37.0" endY="0.0" layoutX="277.0" layoutY="228.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="h9" endX="-37.0" endY="0.0" layoutX="358.0" layoutY="228.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="h10" endX="-37.0" endY="0.0" layoutX="197.0" layoutY="288.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="h11" endX="-37.0" endY="0.0" layoutX="278.0" layoutY="288.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="h12" endX="-37.0" endY="0.0" layoutX="357.0" layoutY="288.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v1" endX="-100.0" endY="42.0" layoutX="189.0" layoutY="118.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v2" endX="-100.0" endY="42.0" layoutX="269.0" layoutY="118.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v3" endX="-100.0" endY="42.0" layoutX="349.0" layoutY="118.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v4" endX="-100.0" endY="42.0" layoutX="429.0" layoutY="117.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v5" endX="-100.0" endY="42.0" layoutX="189.0" layoutY="177.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v9" endX="-100.0" endY="42.0" layoutX="189.0" layoutY="237.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v6" endX="-100.0" endY="42.0" layoutX="269.0" layoutY="177.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v7" endX="-100.0" endY="42.0" layoutX="349.0" layoutY="177.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v8" endX="-100.0" endY="42.0" layoutX="429.0" layoutY="177.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v10" endX="-100.0" endY="42.0" layoutX="269.0" layoutY="237.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v11" endX="-100.0" endY="42.0" layoutX="349.0" layoutY="237.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+        <Line fx:id="v12" endX="-100.0" endY="42.0" layoutX="429.0" layoutY="237.0" onMouseClicked="#onMouseClick" startX="-100.0" strokeWidth="5.0" />
+      </children>
+    </AnchorPane>
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+</GridPane>
