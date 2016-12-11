@@ -10,13 +10,15 @@ public class Client {
     private String address = "127.0.0.1";
     protected Socket clientSocket = null;
 
+    BufferedReader buffread;
+
 
     public Client(int serverPort) {
         this.serverPort = serverPort;
         try {
             InetAddress ipAddress = InetAddress.getByName(address);
             clientSocket = new Socket(ipAddress, serverPort);
-
+            buffread = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         } catch (Exception x) {
             x.printStackTrace();
         }
@@ -45,13 +47,10 @@ public class Client {
 
     public String recvMail() {
         try {
-            BufferedReader buffread = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             String msg;
-            System.out.println("HERE");
             if ((msg = buffread.readLine()) != null) {
                 return msg;
             }
-            System.out.println("NOT HERE");
         } catch (IOException e) {
             //report exception somewhere.
             e.printStackTrace();

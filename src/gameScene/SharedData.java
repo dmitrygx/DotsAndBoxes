@@ -12,10 +12,23 @@ public class SharedData {
 
     private final StringProperty stringLineProp = new SimpleStringProperty("");
 
+    private final StringProperty stringRectProp = new SimpleStringProperty("");
+
+    private final StringProperty stringLabelColorProp = new SimpleStringProperty("");
+
     public StringProperty getStringStateProp() {
         return stringStateProp;
     }
+
     public StringProperty getStringLineProp() {
         return stringLineProp;
+    }
+
+    public StringProperty getStringRectProp() {
+        return stringRectProp;
+    }
+
+    public StringProperty getStringLabelColorProp() {
+        return stringLabelColorProp;
     }
 }

@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.*;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.json.simple.JSONObject;
 import client.Client;
@@ -29,9 +30,12 @@ public class GameSceneController implements Initializable, DataUpdater {
     SharedData data;
 
     @FXML
-    private Button button1;
-    @FXML
     private Label label1;
+    @FXML
+    private Label labelPlayer1;
+    @FXML
+    private Label labelPlayer2;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,21 +62,7 @@ public class GameSceneController implements Initializable, DataUpdater {
         Main.game.setData(Main.sharedData);
         Main.gameSceneLoader = fxmlLoader;
 
-
-
         new Thread(new WorkerRunnable(Main.game)).start();
-    }
-
-    @FXML
-    public void onButton1ClickMethod(ActionEvent event) throws Exception {
-        JSONObject action = new JSONObject();
-
-        action.put("event", Game.PERFORM_ACTION);
-        Main.game.getClient().sendMail(action.toString());
-    }
-
-    public void changeLabel1Text(String text) {
-        label1.setText(text);
     }
 
     @Override
@@ -94,6 +84,27 @@ public class GameSceneController implements Initializable, DataUpdater {
                     System.out.println(newValue + ", also know as " + array[0] + " and " + array[1]);
                     Line line = (Line) Main.gameScene.lookup("#" + array[0]);
                     line.setStroke(color);
+                });
+
+        data.getStringRectProp()
+                .addListener((ObservableValue<? extends String> observable,
+                              String oldValue, String newValue) -> {
+                    String array[] = newValue.split("-");
+                    Color color = Integer.parseInt(array[1]) == 0 ? Color.RED : Color.BLUE ;
+
+                    System.out.println(newValue + ", also know as " + array[0] + " and " + array[1]);
+                    Rectangle rect = (Rectangle) Main.gameScene.lookup("#" + array[0]);
+
+                    rect.setFill(color);
+                });
+
+        data.getStringLabelColorProp()
+                .addListener((ObservableValue<? extends String> observable,
+                              String oldValue, String newValue) -> {
+                    String array[] = newValue.split("-");
+
+                    labelPlayer1.setText(array[0]);
+                    labelPlayer2.setText(array[1]);
                 });
     }
 

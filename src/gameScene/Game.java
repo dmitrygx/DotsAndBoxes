@@ -32,6 +32,8 @@ public class Game implements DataUpdater {
     public static final short CHANGE_STATE = 0;
     public static final short CONFIRMATION = 1;
     public static final short UPDATE = 2;
+    public static final short MARK_AS_WIN = 3;
+    public static final short ASSIGN_COLOR = 4;
 
     public static final short SET_NAME_EVENT = 0;
     public static final short PERFORM_ACTION = 1;
@@ -148,6 +150,24 @@ public class Game implements DataUpdater {
 
                         break;
                     }
+                    case MARK_AS_WIN:
+                    {
+                        String rect = (String)jsonObj.get("rect");
+                        long color = (Long)jsonObj.get("color");
+
+                        updateRect(rect, color);
+
+                        break;
+                    }
+                    case ASSIGN_COLOR:
+                    {
+                        String label1 = (String)jsonObj.get("labelPlayer1");
+                        String label2 = (String)jsonObj.get("labelPlayer2");
+
+                        updateLabelColor(label1, label2);
+
+                        break;
+                    }
                 }
 
                 System.out.println(receivedMsg);
@@ -165,6 +185,42 @@ public class Game implements DataUpdater {
                     @Override
                     public void run() {
                         data.getStringLineProp().set(line + "-" + color);
+                    }
+                });
+                return null;
+            }
+        };
+        Thread th = new Thread(task);
+        th.setDaemon(true);
+        th.start();
+    }
+
+    private void updateRect(String rect, long color) {
+        Task task = new Task<Void>() {
+            @Override
+            public Void call() throws Exception {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        data.getStringRectProp().set(rect + "-" + color);
+                    }
+                });
+                return null;
+            }
+        };
+        Thread th = new Thread(task);
+        th.setDaemon(true);
+        th.start();
+    }
+
+    private void updateLabelColor(String name1, String name2) {
+        Task task = new Task<Void>() {
+            @Override
+            public Void call() throws Exception {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        data.getStringLabelColorProp().set(name1 + "-" + name2);
                     }
                 });
                 return null;
