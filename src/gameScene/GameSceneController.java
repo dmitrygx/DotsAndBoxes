@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import org.json.simple.JSONObject;
 import client.Client;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import sample.Main;
 
 import java.net.URL;

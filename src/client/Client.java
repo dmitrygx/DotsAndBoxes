@@ -14,6 +14,8 @@ public class Client {
 
     BufferedReader buffread;
 
+    boolean gameExit = false;
+
 
     public Client(int serverPort) {
         this.serverPort = serverPort;
@@ -55,6 +57,7 @@ public class Client {
                     return msg;
                 }
             } catch (ConnectionResetException sockex) {
+                gameExit = true;
                 clientSocket.close();
             }
         } catch (IOException e) {
@@ -62,6 +65,10 @@ public class Client {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public boolean isGameExit(){
+        return gameExit;
     }
 
 }

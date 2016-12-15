@@ -104,6 +104,10 @@ public class Game implements DataUpdater {
             JSONParser parser = new JSONParser();
             String receivedMsg = client.recvMail();
 
+            if ((client.isGameExit()) || (receivedMsg == null)) {
+                return;
+            }
+
             try {
                 Object obj = parser.parse(receivedMsg);
                 JSONObject jsonObj = (JSONObject) obj;
